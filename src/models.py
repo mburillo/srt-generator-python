@@ -6,7 +6,8 @@ from enum import Enum
 
 class JobStatus(str, Enum):
     COMPLETED = "COMPLETED"
-    FAILED = "FAILED"
+    FAILED = "FAILED",
+    PROCESSING = "PROCESSING"
 
 class SrtGenerationRequest(BaseModel):
     job_id: str = Field(alias="jobId")

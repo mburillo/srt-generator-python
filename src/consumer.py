@@ -29,7 +29,10 @@ def create_consumer() -> KafkaConsumer:
 
 def handle_message(request: SrtGenerationRequest) -> None:
     logger.info("Job recibido: %s", request.job_id)
-
+    publish_result(SrtGenerationResult(
+        job_id=request.job_id,
+        status=JobStatus.PROCESSING
+    ))
     try:
         source_path = download_source_file(request.object_key)
     except Exception as e:
