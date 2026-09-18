@@ -10,6 +10,12 @@ class Settings(BaseSettings):
     whisper_device: str = "cpu"
     whisper_compute_type: str = "int8"
 
+    storage_provider: str = "local"  # "local" o "r2"
+    r2_endpoint: str = ""
+    r2_access_key: str = ""
+    r2_secret_key: str = ""
+    r2_bucket: str = ""
+    
     class Config:
         env_file = ".env"
 
